@@ -14,7 +14,24 @@
             padding: 0;
             box-sizing: border-box;
         }
+.cursor {
+  display: inline-block;
+  animation: blink 0.7s infinite;
+}
 
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+        .fade {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.fade.show {
+  opacity: 1;
+}
         :root {
             --primary-dark: #0a0e27;
             --primary-darker: #050812;
@@ -1132,7 +1149,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>نزار محمد عبدالله</h1>
+            <h1 id="typing"></h1>
             <p class="subtitle">طالب ماستر متخصص في الذكاء الاصطناعي واللغة الفرنسية</p>
             <p class="university">🎓 جامعة طرابلس - كلية الآداب واللغات</p>
             <div class="hero-buttons">
@@ -1382,5 +1399,44 @@
             });
         });
     </script>
+   <script>
+const texts = [
+  "نزار محمد عبدالله",
+  "طالب ماستر في الذكاء الاصطناعي",
+  "باحث في تحسين النطق"
+];
+
+let i = 0;
+let j = 0;
+let isDeleting = false;
+
+function typeEffect() {
+  const element = document.getElementById("typing");
+  let currentText = texts[i];
+
+  if (isDeleting) {
+    j--;
+  } else {
+    j++;
+  }
+
+  element.innerHTML = currentText.substring(0, j) + '<span class="cursor">|</span>';
+
+  let speed = isDeleting ? 40 : 80;
+
+  if (!isDeleting && j === currentText.length) {
+    speed = 1500;
+    isDeleting = true;
+  } else if (isDeleting && j === 0) {
+    isDeleting = false;
+    i = (i + 1) % texts.length;
+    speed = 300;
+  }
+
+  setTimeout(typeEffect, speed);
+}
+
+window.onload = typeEffect;
+</script> 
 </body>
 </html>
