@@ -636,32 +636,17 @@
             transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        .tool-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
-        }
+        out infinite;
+}
 
-        .tool-card:hover::before {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
+</style>
+</head>
+<body>
 
-        .tool-card:hover::after {
-            opacity: 1;
-        }
+<div style="padding:40px;text-align:center;color:white;">
+<h1>Nizar Mohammed Abdullah</h1>
+<p>Le site est en cours de mise à jour.</p>
+</div>
 
-        .tool-card:hover {
-            transform: translateY(-12px);
-            border-color: var(--accent-primary);
-            box-shadow: 0 25px 60px rgba(0, 212, 255, 0.2);
-        }
-
-        .tool-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            animation: iconFloat 3s ease-in-
+</body>
+</html>
